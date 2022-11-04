@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 
@@ -9,22 +10,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/static/css/magnific-popup.css">
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/themify-icons.css">
-    <link rel="stylesheet" href="/static/css/nice-select.css">
-    <link rel="stylesheet" href="/static/css/flaticon.css">
-    <link rel="stylesheet" href="/static/css/gijgo.css">
-    <link rel="stylesheet" href="/static/css/animate.min.css">
-    <link rel="stylesheet" href="/static/css/slicknav.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -43,7 +44,7 @@
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
                                     <a href="#">
-                                        <img src="/static/img/logo.png" alt="">
+                                        <img src="{% static 'img/logo.png' %}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -107,7 +108,7 @@
             </div>
         </div>
         <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
-            <img src="/static/img/banner/illustration.png" alt="">
+            <img src="{% static 'img/banner/illustration.png' %}" alt="">
         </div>
     </div>
     <!-- slider_area_end -->
@@ -162,26 +163,24 @@
                         </div>
                     </div>
                     <div class="col-xl-12">
-                        <div class="testmonial_active owl-carousel">
-                            <div class="single_carousel">
                                 <div class="row">
                                     <div class="col-lg-11">
                                         <div class="single_testmonial d-flex align-items-center">
                                             <div class="thumb">
-                                                <img src="/static/img/transcr/tr.jpg" alt="" width="50%">
-                                                <div class="quote_icon">
-                                                    <i class="Flaticon flaticon-quote"></i>
-                                                </div>
+                                                <img src="{% static 'img/transcr/tr.jpg' %}" alt="" width="100%">
                                             </div>
                                             <div class="info">
                                                 <p>Транскрибация аудио и видео в текст. Транскрибация представляет собой перевод аудиоматериала в информацию, написанную на бумаге. Главной задачей данного процесса является перевести аудио-поток в связанный и логически сформулированный текст. </p>
 
                                             </div>
+
                                         </div>
+                                        <div class="sldier_btn wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".5s">
+                                                <a href="#" class="boxed-btn3">Преобразовать в текст</a>
+                                            </div>
                                     </div>
+
                                 </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -199,7 +198,7 @@
                         <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="/static/img/logo.png" alt="">
+                                    <img src="{% static 'img/logo.png' %}" alt="">
                                 </a>
                             </div>
                             <p>
@@ -296,36 +295,36 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- link that opens popup -->
     <!-- JS here -->
-    <script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="/static/js/popper.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/owl.carousel.min.js"></script>
-    <script src="/static/js/isotope.pkgd.min.js"></script>
-    <script src="/static/js/ajax-form.js"></script>
-    <script src="/static/js/waypoints.min.js"></script>
-    <script src="/static/js/jquery.counterup.min.js"></script>
-    <script src="/static/js/imagesloaded.pkgd.min.js"></script>
-    <script src="/static/js/scrollIt.js"></script>
-    <script src="/static/js/jquery.scrollUp.min.js"></script>
-    <script src="/static/js/wow.min.js"></script>
-    <script src="/static/js/nice-select.min.js"></script>
-    <script src="/static/js/jquery.slicknav.min.js"></script>
-    <script src="/static/js/jquery.magnific-popup.min.js"></script>
-    <script src="/static/js/plugins.js"></script>
-    <script src="/static/js/gijgo.min.js"></script>
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/scrollIt.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/gijgo.min.js' %}"></script>
 
 
 
     <!--contact js-->
-    <script src="/static/js/contact.js"></script>
-    <script src="/static/js/jquery.ajaxchimp.min.js"></script>
-    <script src="/static/js/jquery.form.js"></script>
-    <script src="/static/js/jquery.validate.min.js"></script>
-    <script src="/static/js/mail-script.js"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
 
 
-    <script src="/static/js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
