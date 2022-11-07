@@ -20,5 +20,8 @@ import services.views as services
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', services.index, name='index'),
-    path('transcribation/', services.transcrib, name='transcrib')
+    path('transcribation/', services.transcrib, name='transcrib'),
+    path('shop/', services.shop, name='shop'),
+    path('parsing/', services.parsing, name='parsing'),
+    path('telegramm/', services.telegramm, name='telegramm')
 ]
