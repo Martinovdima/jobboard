@@ -3,7 +3,16 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'services/index.html')
+    title = 'Главная'
+    content = {
+        'title': title
+    }
+
+    return render(request, 'services/index.html', content)
 
 def transcrib(request):
-    return render(request, 'services/transcribation.html')
+    title = 'Трнаскрибация'
+    content = {
+        'title': title
+    }
+    return render(request, 'services/transcribation.html', content)
