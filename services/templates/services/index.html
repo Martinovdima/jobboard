@@ -1,24 +1,11 @@
-<!doctype html>
 {% extends 'services/base.html' %}
 {% load static %}
-<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 
+{% block title %}
+    {{ title|title }}
+{% endblock %}
 
-
-<head>
-    <title>
-        {% block title %}
-            {{ title|title }}
-        {% endblock %}
-    </title>
-</head>
-
-<body>
-    <header>
-
-    </header>
-
-    {% block slider %}
+{% block slider %}
     <div class="slider_area">
         <div class="single_slider  d-flex align-items-center slider_bg_1">
             <div class="container">
@@ -40,9 +27,9 @@
             <img src="{% static 'img/banner/illustration.png' %}" alt="">
         </div>
     </div>
-    {% endblock %}
+{% endblock %}
 
-    {% block category %}
+{% block category %}
     <div class="popular_catagory_area">
         <div class="container">
             <div class="row">
@@ -80,8 +67,8 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-    {% block content %}
+{% endblock %}
+{% block content %}
     <section id="transc">
         <div class="testimonial_area  ">
             <div class="container">
@@ -115,10 +102,4 @@
             </div>
         </div>
     </section>
-    {% endblock %}
-
-
-    
-</body>
-
-</html>
+{% endblock %}

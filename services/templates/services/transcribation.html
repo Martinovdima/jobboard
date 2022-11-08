@@ -1,21 +1,11 @@
-<!doctype html>
 {% extends 'services/base.html' %}
 {% load static %}
-<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 
-<head>
-    <title>
-        {% block title %}
-            {{ title|title }}
-        {% endblock %}
-    </title>
-</head>
+{% block title %}
+    {{ title|title }}
+{% endblock %}
 
-<body>
-    <header>
-
-    </header>
-    {% block slider %}
+{% block slider %}
     <div class="slider_area">
         <div class="single_slider  d-flex align-items-center slider_bg_1">
             <div class="container">
@@ -37,9 +27,9 @@
             <img src="{% static 'img/banner/illustration.png' %}" alt="">
         </div>
     </div>
-    {% endblock %}
+{% endblock %}
     
-   {% block content %}
+{% block content %}
         <section id="transc">
         <div class="testimonial_area  ">
             <div class="container">
@@ -74,9 +64,4 @@
             </div>
         </div>
     </section>
-    {% endblock %}
-
-
-</body>
-
-</html>
+{% endblock %}

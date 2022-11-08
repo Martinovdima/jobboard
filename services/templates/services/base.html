@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 {% load static %}
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
+
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
         {% block title %}
-            {{ title|title }}
         {% endblock %}
     </title>
     <meta name="description" content="">
@@ -18,7 +18,6 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    {% block css %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
@@ -31,7 +30,6 @@
     <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% endblock %}
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -42,7 +40,6 @@
         <![endif]-->
 
     <!-- header-start -->
-    {% block header %}
     <header>
         <div class="header-area ">
             <div id="sticky-header" class="main-header-area">
@@ -95,7 +92,6 @@
             </div>
         </div>
     </header>
-    {% endblock %}
     <!-- header-end -->
 
     <!-- slider_area_start -->
@@ -117,7 +113,6 @@
 
 
     <!-- footer start -->
-    {% block footer %}
     <footer class="footer">
         <div class="footer_top">
             <div class="container">
@@ -220,12 +215,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </footer>
-    {% endblock %}
     <!--/ footer end  -->
 
     <!-- link that opens popup -->
     <!-- JS here -->
-    {% block js %}
     <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
     <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
@@ -256,5 +249,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <script src="{% static 'js/main.js' %}"></script>
-    {% endblock %}
 </body>
+</html>
