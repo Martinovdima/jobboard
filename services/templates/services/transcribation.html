@@ -51,10 +51,12 @@
                                     </div>
                                     <div class="info">
                                         <p>Транскрибация аудио и видео.</p>
-                                        <form action="/" method="post">
+                                        <form action="result/" method="post">
                                             {% csrf_token %}
-                                            <label for="audio">Audio: </label>
-                                            <input id="audio" type="file">
+                                            <label for="name"> File name:</label><br>
+                                            <input type="text" id="name" name="name"><br>
+                                            <label for="audio">Audio:</label><br>
+                                            <input id="audio" type="file" name="audio_file" required placeholder="Audio">
                                             <input type="submit" value="Получить текст">
                                         </form>
                                     </div>

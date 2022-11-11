@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from services.models import Transcrib, ServicesCategory
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -15,6 +18,14 @@ def transcrib(request):
         'title': 'Транскрибация'
     }
     return render(request, 'services/transcribation.html', content)
+
+def result(request):
+    if request.method == "POST":
+        aud = Transcrib()
+        aud.name = request.POST.get("name")
+        aud.audio = request.POST.get("audio_file")
+        aud.save()
+    return HttpResponseRedirect(reverse('transcrib:index'))
 
 
 def shop(request):
