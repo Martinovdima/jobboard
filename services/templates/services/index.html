@@ -23,9 +23,11 @@
                 </div>
             </div>
         </div>
+
         <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
-            <img src="{% static 'img/banner/illustration.png' %}" alt="">
+            <img src="{% static 'img/banner/MyLOGO.png' %}" alt="">
         </div>
+
     </div>
 {% endblock %}
 
@@ -54,8 +56,11 @@
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
+                        <div class="text-center">
+                        <img src="{% static 'img/banner/MyLOGO.png' %}" alt="Транскрибация">
+                            </div>
                         <a href="{% url 'transcrib:index' %}"><h4>Транскрибация</h4></a>
-                        <p> <span>50</span> Available position</p>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
@@ -82,7 +87,7 @@
                                     <div class="col-lg-11">
                                         <div class="single_testmonial d-flex align-items-center">
                                             <div class="thumb">
-                                                <img src="{% static 'img/transcr/tr.jpg' %}" alt="" width="100%">
+                                                <img src="{% static 'img/banner/MyLOGO.png' %}" alt="Транскрибация">
                                             </div>
                                             <div class="info">
                                                 <p>Транскрибация аудио и видео в текст. Транскрибация представляет собой перевод аудиоматериала в информацию, написанную на бумаге. Главной задачей данного процесса является перевести аудио-поток в связанный и логически сформулированный текст. </p>
@@ -90,8 +95,10 @@
                                             </div>
 
                                         </div>
+                                        <div class="text-center">
                                         <div class="sldier_btn wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".5s">
                                                 <a href="{% url 'transcrib:index' %}" class="boxed-btn3">Преобразовать в текст</a>
+                                            </div>
                                             </div>
                                     </div>
 

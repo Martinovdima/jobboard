@@ -23,9 +23,11 @@
                 </div>
             </div>
         </div>
+
         <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
-            <img src="{% static 'img/banner/illustration.png' %}" alt="">
+             <img src="{% static 'img/banner/MyLOGO.png' %}" alt="">
         </div>
+
     </div>
 {% endblock %}
     
@@ -44,21 +46,22 @@
                             <div class="col-lg-11">
                                 <div class="single_testmonial d-flex align-items-center">
                                     <div class="thumb">
-                                        <img src="{% static 'img/transcr/tr.jpg' %}" alt="" width="50%">
-                                        <div class="quote_icon">
-                                            <i class="Flaticon flaticon-quote"></i>
-                                        </div>
+
+
                                     </div>
                                     <div class="info">
                                         <p>Транскрибация аудио и видео.</p>
+
                                         <form action="result/" method="post">
                                             {% csrf_token %}
                                             <label for="name"> File name:</label><br>
                                             <input type="text" id="name" name="name"><br>
                                             <label for="audio">Audio:</label><br>
                                             <input id="audio" type="file" name="audio_file" required placeholder="Audio">
-                                            <input type="submit" value="Получить текст">
+                                            <!--<input type="submit" value="Получить текст">-->
+                                            <button type="submit">Получить текст</button>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
