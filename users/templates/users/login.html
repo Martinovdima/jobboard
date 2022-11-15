@@ -1,8 +1,17 @@
-{% extends 'services/base.html' %}
+{% extends 'users/base.html' %}
 {% load static %}
 
+{% block title %}
+    {{ title|title }}
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
 {% block content %}
-<div class="apply_job_form white-bg">
+    <div class="job_details_area">
+                    <div class="apply_job_form white-bg">
                         <h4>Apply for the job</h4>
                         <form action="#">
                             <div class="row">
@@ -46,4 +55,5 @@
                             </div>
                         </form>
                     </div>
+                </div>
 {% endblock %}
