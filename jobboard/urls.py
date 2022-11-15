@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import services.views as services
 from django.conf import settings
 from django.conf.urls.static import static
+
+import services.views as services
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', services.index, name='index'),
+    path('users/', include('users.urls', namespace='users')),
     path('transcribation/', include('services.urls', namespace='transcrib')),
     path('shop/', services.shop, name='shop'),
     path('parsing/', services.parsing, name='parsing'),

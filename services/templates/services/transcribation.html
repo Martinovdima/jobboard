@@ -68,7 +68,7 @@
                                     <div class="info">
                                         <p>Транскрибация аудио и видео.</p>
 
-                                        <form action="result/" method="post">
+                                        <form action="result/" enctype="multipart/form-data" method="post">
                                             {% csrf_token %}
                                             <label for="name"> File name:</label><br>
                                             <input type="text" id="name" name="name"><br>
