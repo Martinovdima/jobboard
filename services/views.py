@@ -1,8 +1,10 @@
-from django.shortcuts import render
-
-from services.models import Transcrib, ServicesCategory
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.files.storage import FileSystemStorage
+
+from services.models import Transcrib, ServicesCategory
+from services.forms import TranscribForm
 
 # Create your views here.
 
@@ -14,18 +16,25 @@ def index(request):
 
 
 def transcrib(request):
+    form = TranscribForm()
     content = {
-        'title': 'Транскрибация'
+        'title': 'Транскрибация',
+        'label_name_services': 'Транскрибация аудио из фалов WAV',
+        'form': form,
     }
     return render(request, 'services/transcribation.html', content)
 
-def result(request):
-    if request.method == "POST":
-        aud = Transcrib()
-        aud.name = request.POST.get("name")
-        aud.audio = request.POST.get("audio_file")
-        aud.save()
-    return HttpResponseRedirect(reverse('transcrib:index'))
+def create(request):
+    if request.method == 'POST':
+        form = TranscribForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('transcrib:index')
+    else:
+        form = TranscribForm()
+    return render(request, 'services/transcribation.html', {
+        'form': form
+    })
 
 
 def shop(request):
