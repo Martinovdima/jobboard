@@ -1,0 +1,56 @@
+{% extends 'services/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title|title }}
+{% endblock %}
+
+{% block slider %}
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-6">
+                    <div class="slider_text">
+                        <h5 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">Совершенно бесплатно</h5>
+                        <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Транскрибация онлайн</h3>
+                        <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">Транскрибация аудио и
+                            видео в текст. Транскрибация представляет собой перевод аудиоматериала в информацию,
+                            написанную на бумаге. Главной задачей данного процесса является перевести аудио-поток в
+                            связанный и логически сформулированный текст.</p>
+                        <div class="sldier_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                            <a href="#transc" class="boxed-btn3">Загрузить файл</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s"
+         data-wow-delay=".2s">
+        <img src="{% static 'img/banner/MyLOGO.png' %}" alt="">
+    </div>
+
+</div>
+
+{% endblock %}
+{% block content %}
+<div class="job_details_area">
+    <div class="info">
+        <div class="apply_job_form white-bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input_field">
+                        {% for file in files %}
+                        <p>{{ file.id }}</p>
+                        <p>{{ file.name }}</p>
+                        <p>{{ file.text }}</p><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
