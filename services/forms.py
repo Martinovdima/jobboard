@@ -5,7 +5,7 @@ from services.models import Transcrib
 class TranscribForm(ModelForm):
     class Meta:
         model = Transcrib
-        fields = ['name', 'audio']
+        fields = ['id', 'name', 'audio', 'text']
 
         widgets = {
             'name': TextInput(attrs={

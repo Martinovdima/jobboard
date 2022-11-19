@@ -16,4 +16,4 @@ class Transcrib(models.Model):
     text = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.name} | {self.category} '
+        return f'{self.name} | {self.name} | {self.category} '
