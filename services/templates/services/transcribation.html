@@ -69,31 +69,55 @@
                         </div>
                     </div>
                     <div class="col-xl-12">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
+                    <div class="row">
+                        <div class="col-lg-11">
+                            <div class="single_testmonial d-flex align-items-center">
+                                <div class="thumb">
+                                </div>
 
-
-                                    </div>
+                                <div class="job_details_area">
                                     <div class="info">
-                                        <p>Транскрибация аудио и видео.</p>
-
-                                        <form action="result/" enctype="multipart/form-data" method="post">
-                                            {% csrf_token %}
-                                            <label for="name"> File name:</label><br>
-                                            <input type="text" id="name" name="name"><br>
-                                            <label for="audio">Audio:</label><br>
-                                            <input id="audio" type="file" name="audio_file" required placeholder="Audio">
-                                            <!--<input type="submit" value="Получить текст">-->
-                                            <button type="submit">Получить текст</button>
-                                        </form>
-
+                                        <p>{{ label_name_services }}</p>
+                                        <div class="apply_job_form white-bg">
+                                            <form action="create/" enctype="multipart/form-data" method="post">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input_field">
+                                                            {{ form.name }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <button type="button" id="audio"><i
+                                                                        class="fa fa-cloud-upload"
+                                                                        aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="custom-file">
+                                                                {{ form.audio }}
+                                                                <label class="custom-file-label">Загрузка
+                                                                    файла</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="submit_btn">
+                                                            <button class="boxed-btn3 w-100" type="submit">Получить
+                                                                текст
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
