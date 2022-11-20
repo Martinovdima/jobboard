@@ -1,31 +1,22 @@
-{% extends 'users/base.html' %}
+{% extends 'services/base.html' %}
 {% load static %}
 
-{% block title %}
-    {{ title|title }}
-{% endblock %}
 
-{% block slider %}
-
-{% endblock %}
 
 {% block content %}
- <div class="job_details_area">
+    <div class="job_details_area">
                     <div class="apply_job_form white-bg">
                         <div class="row justify-content-center">
-                        <h4>Регистрация</h4>
+                            <h4>Личный кабинет</h4>
                         </div>
-                        {% if form.errors %}
-                            <div class="row justify-content-center">
-                                <div class="alert
-                                    {% if messages %} alert-success {% else %} alert-warning {% endif %}
-                                     alert-dismissible fade show" role="alert" style="...">
-                                    {{ form.errors | escape }}
-                                </div>
-                            </div>
-                        {% endif %}
+                        <div class="row justify-content-center">
+                                <img width="100" height="100"
+                                src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/default_avatar.jpg' %} {% endif %}"
+                                class="img-thumbnail">
+                        </div>
                         <form action="{% url 'users:register' %}" method="POST">
                             {% csrf_token %}
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input_field">
@@ -39,17 +30,10 @@
                                         {{ form.email }}
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
-                                    <div class="input_field">
-                                        <label class="small mb-1" for="{{ form.password1.id_for_label }}">Введите пароль</label>
-                                        {{ form.password1 }}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input_field">
-                                        <label class="small mb-1" for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>
-                                        {{ form.password2 }}
+                                    <div class="custom-file">
+                                        <label class="custom-file-label" for="{{ form.image.id_for_label }}">Выберите изображение</label>
+                                        {{ form.image }}
                                     </div>
                                 </div>
 
@@ -60,6 +44,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
+
+                        </div>
+    </div>
 {% endblock %}
