@@ -1,0 +1,28 @@
+{% extends 'services/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="job_details_area">
+                    <div class="apply_job_form white-bg">
+                        <div class="row justify-content-center">
+                            <h4>Личный кабинет</h4>
+                        </div>
+                           <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input_field">
+                                        <label class="small mb-1" for="{{ user.username.id_for_label }}">Имя пользователя: </label>
+                                        {{ user.username }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input_field">
+                                        <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной почты: </label>
+                                        {{ user.email }}
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+    </div>
+{% endblock %}

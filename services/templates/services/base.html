@@ -79,7 +79,7 @@
                                 <div class="Appointment">
                                     {% if user.is_authenticated %}
                                     <div class="phone_num d-none d-xl-block">
-                                        <a href="#">{{ user.username}}</a>
+                                        <a href="{% url 'users:profile' %}">{{ user.username}}</a>
                                     </div>
                                     <div class="phone_num d-none d-xl-block">
                                         <a href="{% url 'users:logout' %}">Выйти</a>
