@@ -17,9 +17,11 @@
                         </div>
                         {% if form.errors %}
                             <div class="row justify-content-center">
-                                <h6>
+                                <div class="alert
+                                    {% if messages %} alert-success {% else %} alert-warning {% endif %}
+                                     alert-dismissible fade show" role="alert" style="...">
                                     {{ form.errors | escape}}
-                                </h6>
+                                </div>
                             </div>
                         {% endif %}
                         <form action="{% url 'users:register' %}" method="POST">
