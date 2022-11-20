@@ -12,7 +12,19 @@
 {% block content %}
     <div class="job_details_area">
                     <div class="apply_job_form white-bg">
+                        <div class="row justify-content-center">
                         <h4>Авторизация</h4>
+                        </div>
+                        {% if form.errors %}
+                            <div class="row justify-content-center">
+                                <h6>
+                                    {% for error in form.non_field_errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </h6>
+                            </div>
+                        {% endif %}
+
                         <form action="{% url 'users:login' %}" method="post">
                             {% csrf_token %}
                             <div class="row justify-content-center">

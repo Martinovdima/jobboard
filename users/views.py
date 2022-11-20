@@ -17,8 +17,6 @@ def login(request):
             if user and user.is_active:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('index'))
-        else:
-            print(form.errors)
     else:
         form = UserLoginForm()
     content = {'title': 'Login', 'form': form}
@@ -31,8 +29,6 @@ def register(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:login'))
-        else:
-            print(form.errors)
     else:
         form = UserRegisterForm()
     content = {'title': 'Registration', 'form': form}
