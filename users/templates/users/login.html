@@ -13,19 +13,21 @@
     <div class="job_details_area">
                     <div class="apply_job_form white-bg">
                         <h4>Авторизация</h4>
-                        <form action="#">
-                            <div class="row justify-content-center">
-                                <div class="col-md-2">
-                                    <div class="input_field">
-                                        <input type="text" placeholder="Имя пользователя">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="input_field">
-                                        <input type="password" placeholder="Пароль">
-                                    </div>
-                                </div>
-                            </div>
+                        <form action="{% url 'users:login' %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+<!--                            <div class="row justify-content-center">-->
+<!--                                <div class="col-md-2">-->
+<!--                                    <div class="input_field">-->
+<!--                                        <input type="text" placeholder="Имя пользователя">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-2">-->
+<!--                                    <div class="input_field">-->
+<!--                                        <input type="password" placeholder="Пароль">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
                                     <div class="submit_btn">
