@@ -6,5 +6,5 @@ app_name = 'services'
 urlpatterns = [
     path('', transcrib, name='index'),
     path('create/', create, name='create'),
-    path('transcribation_result/', transcribation_result, name='transcribation_result')
+    path('transcribation_result/<int:pk>/', transcribation_result, name='transcribation_result')
 ]

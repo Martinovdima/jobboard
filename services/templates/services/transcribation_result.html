@@ -42,11 +42,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input_field">
-                        {% for file in files %}
+                        <!--{% for file in files %}
                         <p>{{ file.id }}</p>
                         <p>{{ file.name }}</p>
-                        <p>{{ file.text }}</p><br>
-                        {% endfor %}
+                        {% endfor %}-->
+                        <a href="{% url 'transcrib:transcribation_result' filename='filename' %}">Download PDF</a>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
 from django.core.files.storage import FileSystemStorage
+from django.utils.datastructures import MultiValueDictKeyError
 import os  # Библиотека для работы с системой
 import time  # Библиотека для работы со временем
 import speech_recognition as sr  # Библиотека с популярными сервисами распознавания речи
 from pydub import AudioSegment  # Библиотека для работы с аудиоданными
 from jobboard.settings import BASE_DIR
+import mimetypes
 
 from services.models import Transcrib, ServicesCategory
 from services.forms import TranscribForm
@@ -84,9 +86,8 @@ def conversion(filename, id):
             print(
                 "Could not request results. check your internet connection")  # Если отсутствует подключение к интернету
     print(f'Conversion finished!')  # Отображении о завершении конвертации
-    os.chdir('..')  # Закрываем директорию
-    return os.path.join(BASE_DIR, 'media/transcrib_text{0}/decoded{0}.txt'.format(id, id))
-    #return f'Conversion finished!'
+    #os.chdir('..')  # Закрываем директорию
+    return 'media/transcrib_text{0}/decoded{0}.txt'.format(id, id)
 
 def create(request):
     if request.method == 'POST':
@@ -94,23 +95,29 @@ def create(request):
         if form.is_valid():
             new_file = form.save(commit=False)
             new_file.save()
-            new_file.text = conversion(request.FILES['audio'], new_file.id)
-            new_file.save()
-            form.save_m2m()
-            return redirect('transcrib:transcribation_result')
+            try:
+                new_file.text = conversion(request.FILES['audio'], new_file.id)
+                new_file.save()
+                form.save_m2m()
+                return redirect('transcrib:transcribation_result', new_file.id)
+            except MultiValueDictKeyError:
+                return redirect('transcrib:index')
     else:
         form = TranscribForm()
     return render(request, 'services/transcribation.html', {
         'form': form
     })
 
-def transcribation_result(request):
-    files = Transcrib.objects.all()
-    content = {
-        'title': 'Результат транскрибации',
-        'files': files
-    }
-    return render(request, 'services/transcribation_result.html', content)
+def transcribation_result(self, pk):
+    file = Transcrib.objects.get(pk=pk)
+    filepath = file.text
+    filename = os.path.basename(filepath)
+    filepath = os.path.join(BASE_DIR, filepath)
+    path = open(filepath, 'r')
+    mime_type, _ = mimetypes.guess_type(filepath)
+    response = HttpResponse(path, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
 def shop(request):
     content = {
