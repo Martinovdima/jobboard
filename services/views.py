@@ -91,17 +91,17 @@ def conversion(filename, id):
 
 def create(request):
     if request.method == 'POST':
-        form = TranscribForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_file = form.save(commit=False)
-            new_file.save()
-            try:
+        try:
+            form = TranscribForm(request.POST, request.FILES)
+            if form.is_valid():
+                new_file = form.save(commit=False)
+                new_file.save()
                 new_file.text = conversion(request.FILES['audio'], new_file.id)
                 new_file.save()
                 form.save_m2m()
                 return redirect('transcrib:transcribation_result', new_file.id)
-            except MultiValueDictKeyError:
-                return redirect('transcrib:index')
+        except MultiValueDictKeyError:
+            return redirect('transcrib:index')
     else:
         form = TranscribForm()
     return render(request, 'services/transcribation.html', {
