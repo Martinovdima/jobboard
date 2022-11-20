@@ -12,44 +12,39 @@
 {% block content %}
  <div class="job_details_area">
                     <div class="apply_job_form white-bg">
-                        <h4>Apply for the job</h4>
-                        <form action="#">
+                        <h4>Регистрация</h4>
+                        <form action="{% url 'users:register' %}" method="POST">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Your name">
+                                        <label class="small mb-1" for="{{ form.username.id_for_label }}">Имя пользователя </label>
+                                        {{ form.username }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Email">
+                                        <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной почты </label>
+                                        {{ form.email }}
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+
+                                <div class="col-md-6">
                                     <div class="input_field">
-                                        <input type="text" placeholder="Website/Portfolio link">
+                                        <label class="small mb-1" for="{{ form.password1.id_for_label }}">Введите пароль</label>
+                                        {{ form.password1 }}
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                                          </button>
-                                        </div>
-                                        <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-                                          <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="input_field">
-                                        <textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"></textarea>
+                                        <label class="small mb-1" for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>
+                                        {{ form.password2 }}
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="submit_btn">
-                                        <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
+                                        <button class="boxed-btn3 w-100" type="submit">Регистрация</button>
                                     </div>
                                 </div>
                             </div>

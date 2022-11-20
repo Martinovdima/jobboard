@@ -1,11 +1,44 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib import auth
+from django.urls import reverse
+
+from users.forms import UserLoginForm, UserRegisterForm
 
 
 # Create your views here.
 def login(request):
-    content = {'title': 'Login'}
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username, password=password)
+            if user and user.is_active:
+                auth.login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+        else:
+            print(form.errors)
+    else:
+        form = UserLoginForm()
+    content = {'title': 'Login', 'form': form}
     return render(request, 'users/login.html', content)
 
+
 def register(request):
-    content = {'title': 'Registration'}
+    if request.method == 'POST':
+        form = UserRegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:login'))
+        else:
+            print(form.errors)
+    else:
+        form = UserRegisterForm()
+    content = {'title': 'Registration', 'form': form}
     return render(request, 'users/register.html', content)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
