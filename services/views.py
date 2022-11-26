@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponse, Http404
-from django.urls import reverse
-from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
 import os  # Библиотека для работы с системой
 import time  # Библиотека для работы со временем
@@ -10,7 +8,7 @@ from pydub import AudioSegment  # Библиотека для работы с а
 from jobboard.settings import BASE_DIR
 import mimetypes
 
-from services.models import Transcrib, ServicesCategory
+from services.models import Transcrib
 from services.forms import TranscribForm
 
 # Create your views here.
@@ -85,8 +83,14 @@ def conversion(filename, id):
         except sr.RequestError as e:
             print(
                 "Could not request results. check your internet connection")  # Если отсутствует подключение к интернету
+    print(os.getcwd())
+    os.chdir('..')  # Закрываем директорию \media\transcrib_text{#}\audio_chunks
+    print(os.getcwd())
+    os.chdir('..')  # Закрываем директорию \media\transcrib_text{#}
+    print(os.getcwd())
+    os.chdir('..')  # Закрываем директорию \media\
+    print(os.getcwd())
     print(f'Conversion finished!')  # Отображении о завершении конвертации
-    #os.chdir('..')  # Закрываем директорию
     return 'media/transcrib_text{0}/decoded{0}.txt'.format(id, id)
 
 def create(request):
