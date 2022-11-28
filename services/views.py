@@ -78,18 +78,8 @@ def conversion(filename, id):
             print("Successful chunk " + str(i))  # Отображаем положительный результат
 
         except sr.UnknownValueError:
-            print("Could not understand audio")  # Если в аудиофайле нет речи
-
-        except sr.RequestError as e:
-            print(
-                "Could not request results. check your internet connection")  # Если отсутствует подключение к интернету
-    print(os.getcwd())
-    os.chdir('..')  # Закрываем директорию \media\transcrib_text{#}\audio_chunks
-    print(os.getcwd())
-    os.chdir('..')  # Закрываем директорию \media\transcrib_text{#}
-    print(os.getcwd())
-    os.chdir('..')  # Закрываем директорию \media\
-    print(os.getcwd())
+            f.write("Could not understand audio")  # Записываем текст Could not understand audio файл
+    os.chdir(BASE_DIR) # возвращаемся в начальную директорию
     print(f'Conversion finished!')  # Отображении о завершении конвертации
     return 'media/transcrib_text{0}/decoded{0}.txt'.format(id, id)
 

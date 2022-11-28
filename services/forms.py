@@ -16,7 +16,8 @@ class TranscribForm(ModelForm):
                 'id': 'audio_file',
                 'name': 'audio_file',
                 'class': 'custom-file-input',
-                'aria-describedby': 'audio'
+                'aria-describedby': 'audio',
+                'accept': ".wav, .mp3"
             })
         }
 
